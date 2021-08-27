@@ -9,7 +9,7 @@ Your project description goes here. What problem did you solve? How did you solv
 
 ## Checklist
 
-- [ ] HTML, client.js, jquery.js, log "DOM ready"
+- [x] HTML, client.js, jquery.js, log "DOM ready"
 - [ ] Build HTML template (inputs / table)
 - [ ] Style table 
 - [ ] Button click that logs to console
