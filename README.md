@@ -10,7 +10,7 @@ Your project description goes here. What problem did you solve? How did you solv
 ## Checklist
 
 - [x] HTML, client.js, jquery.js, log "DOM ready"
-- [ ] Build HTML template (inputs / table)
+- [x] Build HTML template (inputs / table)
 - [ ] Style table 
 - [ ] Button click that logs to console
 - [ ] Assign input to variables
