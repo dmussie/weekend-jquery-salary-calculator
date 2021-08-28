@@ -11,7 +11,7 @@ Your project description goes here. What problem did you solve? How did you solv
 
 - [x] HTML, client.js, jquery.js, log "DOM ready"
 - [x] Build HTML template (inputs / table)
-- [ ] Style table 
+- [x] Style table (template)
 - [ ] Button click that logs to console
 - [ ] Assign input to variables
 - [ ] Append to the DOM using variable
@@ -19,6 +19,7 @@ Your project description goes here. What problem did you solve? How did you solv
 - [ ] Append monthly cost to the DOM
 - [ ] Logic for background color on monthly costs
 - [ ] Delete button that removes a row
+- [ ] Final styling
 
 ### Stretch
 - [ ] Update the total cost on delete of a row
