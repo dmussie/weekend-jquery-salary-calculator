@@ -12,9 +12,9 @@ Your project description goes here. What problem did you solve? How did you solv
 - [x] HTML, client.js, jquery.js, log "DOM ready"
 - [x] Build HTML template (inputs / table)
 - [x] Style table (template)
-- [ ] Button click that logs to console
-- [ ] Assign input to variables
-- [ ] Append to the DOM using variable
+- [x] Button click that logs to console
+- [x] Assign input to variables
+- [x] Append to the DOM using variable
 - [ ] Global variable for monthly costs
 - [ ] Append monthly cost to the DOM
 - [ ] Logic for background color on monthly costs

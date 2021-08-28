@@ -6,6 +6,8 @@ function readyNow() {
     $('#submit-button').on('click', addNewEmployee) 
 };
 
+let monthlyCost = 0;
+
 function addNewEmployee() {
     console.log('in addNewEmployee');
     let firstName = $('#first-name').val();
@@ -16,6 +18,14 @@ function addNewEmployee() {
     let salaryNumber = parseInt(annualSalary);
     console.log(firstName, lastName, id, title, salaryNumber);
 
+    // empty inputs after click
+    $('#first-name').val('');
+    $('#last-name').val('');
+    $('#id').val('');
+    $('#title').val('');
+    $('#annual-salary').val('');
+
+    // append inputs to DOM
     $('#calc-table-body').append(`
         <tr>
             <th>${firstName}</th>
@@ -26,4 +36,19 @@ function addNewEmployee() {
         </tr>
     
     `)
+
+    // calculate monthly cost
+    monthlyCost += salaryNumber/12
+    console.log('monthly cost:', monthlyCost);
+
+    // append monthly cost to DOM
+    $('.calc-content').append(`
+        <div class="monthly-cost">
+            <h3>Total Monthly: ${monthlyCost}</h2>
+        </div>
+    `)
+    
 }
+
+
+
