@@ -72,13 +72,6 @@ function displayEmployeeTable() {
     }
 };
 
-// function deleteEmployee() {
-//     console.log('in deleteEmployee');
-//     for (let i = 0; i < employeeArray.length; i++) {
-//         employeeArray[i].pop();
-//     }
-// }
-
 function deleteEmployeeRow() {
     console.log('in deleteEmployeeRow');
     //console.log($(this));
@@ -87,7 +80,6 @@ function deleteEmployeeRow() {
     //console.log($('.employee-row').remove());
     $(this).parent().parent().remove();
 };
-
 
 let annualSalaryNumber = 0;
 
@@ -99,13 +91,25 @@ function calculateMonthlyCost() {
         //loop through employeeArray and calculate monthly cost
         annualSalaryNumber = parseInt(employeeArray[i].annualSalary);
     }
+
     let monthlyCostNumber = annualSalaryNumber/12;
     monthlyCost += monthlyCostNumber;
-    console.log('monthly cost after:', monthlyCost);
+    
+
+    let convertCurrency = Intl.NumberFormat('en-US', { // had help to understand this conversion method
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0
+    });
+
+    let monthlyCostConverted = convertCurrency.format(monthlyCost)
+    
+    
+    console.log('monthly cost after:', monthlyCostConverted);
     $('#calc-table-footer').empty();
     // append monthly cost to DOM
     $('#calc-table-footer').append(`
-        <h3>Total Monthly: ${monthlyCost}</h2>
+        <h3>Total Monthly: ${monthlyCostConverted}</h2>
     `)
     if (monthlyCost > 20000) {
         $('#calc-table-footer').css({"background-color": "red"});

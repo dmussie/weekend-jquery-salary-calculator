@@ -1,5 +1,21 @@
 /* Base styles from w3schools */
 
+.calc-content {
+    font-family: 'Roboto', sans-serif;
+}
+
+.calc-title {
+    text-align: center;
+    background-color:orange;
+    color: darkblue;
+}
+
+input {
+    position: relative;
+    float: left;
+    margin: auto;
+}
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;

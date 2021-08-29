@@ -18,7 +18,7 @@ Your project description goes here. What problem did you solve? How did you solv
 - [x] Global variable for monthly costs
 - [x] Append monthly cost to the DOM
 - [x] Logic for background color on monthly costs
-- [ ] Delete button that removes a row
+- [x] Delete button that removes a row
 - [ ] Final styling
 
 ### Stretch
