@@ -86,7 +86,7 @@ function calculateMonthlyCost() {
     `)
     //$('.monthly-cost').empty();
     if (monthlyCost > 20000) {
-    $('.monthly-cost').css({"background-color": "red"});
+        $('#calc-table-footer').css({"background-color": "red"});
     }
 
 }

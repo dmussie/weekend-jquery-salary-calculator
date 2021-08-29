@@ -17,7 +17,7 @@ Your project description goes here. What problem did you solve? How did you solv
 - [x] Append to the DOM using variable
 - [x] Global variable for monthly costs
 - [x] Append monthly cost to the DOM
-- [ ] Logic for background color on monthly costs
+- [x] Logic for background color on monthly costs
 - [ ] Delete button that removes a row
 - [ ] Final styling
 
