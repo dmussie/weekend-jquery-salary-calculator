@@ -78,7 +78,9 @@ function deleteEmployeeRow() {
     //console.log($(this).parent());
     //console.log($(this).parent().parent());
     //console.log($('.employee-row').remove());
-    $(this).parent().parent().remove();
+    $(this).parent().parent().remove(); // THIS is still fuzzy to me, 
+                                        // but I believe a have a decent understanding 
+                                        // as to WHY this works
 };
 
 let annualSalaryNumber = 0;
@@ -106,16 +108,15 @@ function calculateMonthlyCost() {
     
     
     console.log('monthly cost after:', monthlyCostConverted);
-    $('#calc-table-footer').empty();
+    $('.content-footer').empty();
     // append monthly cost to DOM
-    $('#calc-table-footer').append(`
-        <h3>Total Monthly: ${monthlyCostConverted}</h2>
+    $('.content-footer').append(`
+        <h3>Total Monthly: <span id="monthly-color"> ${monthlyCostConverted}</span></h3>
     `)
     if (monthlyCost > 20000) {
-        $('#calc-table-footer').css({"background-color": "red"});
+        $('#monthly-color').css({"background-color": "red"});
     }
 
 };
 
 
-//.html() writes over!! eliminates need for clearing rows

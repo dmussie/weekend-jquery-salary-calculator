@@ -8,6 +8,7 @@
     text-align: center;
     background-color:orange;
     color: darkblue;
+    padding: 10px;
 }
 
 input {
@@ -16,10 +17,23 @@ input {
     margin: auto;
 }
 
-table, th, td {
+table, th, td, tfoot {
     border: 1px solid black;
     border-collapse: collapse;
   }
-  th, td {
+  th, td, tfoot {
     padding: 15px;
+  }
+
+  th {
+      background-color: orange;
+      color: darkblue;
+  }
+
+  tfoot {
+      background-color: orange;
+  }
+
+  .delete-button {
+      background-color: orange;
   }

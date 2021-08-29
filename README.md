@@ -19,7 +19,7 @@ Your project description goes here. What problem did you solve? How did you solv
 - [x] Append monthly cost to the DOM
 - [x] Logic for background color on monthly costs
 - [x] Delete button that removes a row
-- [ ] Final styling
+- [x] Final styling
 
 ### Stretch
 - [ ] Update the total cost on delete of a row
