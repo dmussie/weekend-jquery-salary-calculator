@@ -6,14 +6,17 @@ $(document).ready(readyNow);
 function readyNow() {
     console.log('DOM ready');
     //enable submit-button
-    $('#submit-button').on('click', addNewEmployee);
+    $('#submit-button').on('click', newEmployeeInputs);
     calculateMonthlyCost();
+    $('#calc-table-body').on('click', '.delete-button', deleteEmployeeRow);
+    deleteEmployeeRow();
 };
 
-function newEmployee(firstNameInput, lastNameInput, 
+function addNewEmployeeObject(firstNameInput, lastNameInput, 
     idInput, titleInput, annualSalaryInput) {
-    console.log('in newEmployee:', firstNameInput, 
+    console.log('in addNewEmployeeObject:', firstNameInput, 
     lastNameInput, idInput, titleInput, annualSalaryInput);
+    console.log($(this));
     const newEmployeeObject = {
         firstName: firstNameInput,
         lastName: lastNameInput,
@@ -23,13 +26,14 @@ function newEmployee(firstNameInput, lastNameInput,
     }
     employeeArray.push(newEmployeeObject);
     return true;
-}
+};
 //console.log(employeeArray);
 // console.log(newEmployee('Jen', 'Barber', 4521, 'Team Lead', 80000));
 //console.log(employeeArray);
 
-function addNewEmployee() {
-    console.log('in addNewEmployee');
+function newEmployeeInputs() {
+    console.log('in newEmployeeInputs');
+    console.log($(this));
     let firstName = $('#first-name').val();
     let lastName = $('#last-name').val();
     let id = $('#id').val();
@@ -37,7 +41,7 @@ function addNewEmployee() {
     let annualSalary = $('#annual-salary').val();
     let salaryNumber = parseInt(annualSalary);
     
-    newEmployee(firstName, lastName, id, title, annualSalary);
+    addNewEmployeeObject(firstName, lastName, id, title, annualSalary);
     // empty inputs after click
     $('#first-name').val('');
     $('#last-name').val('');
@@ -46,16 +50,17 @@ function addNewEmployee() {
     $('#annual-salary').val('');
     displayEmployeeTable();
     calculateMonthlyCost();
-}
+};
 
 function displayEmployeeTable() {
     console.log('in displayEmployeeTable');
+    console.log($(this));
     $('#calc-table-body').empty();
     for (employee of employeeArray) {
         console.table(employee);
         // append inputs to DOM
         $('#calc-table-body').append(`
-            <tr>
+            <tr class="employee-row">
                 <td>${employee.firstName}</td>
                 <td>${employee.lastName}</td> 
                 <td>${employee.id}</td> 
@@ -67,10 +72,28 @@ function displayEmployeeTable() {
     }
 };
 
+// function deleteEmployee() {
+//     console.log('in deleteEmployee');
+//     for (let i = 0; i < employeeArray.length; i++) {
+//         employeeArray[i].pop();
+//     }
+// }
+
+function deleteEmployeeRow() {
+    console.log('in deleteEmployeeRow');
+    //console.log($(this));
+    //console.log($(this).parent());
+    //console.log($(this).parent().parent());
+    //console.log($('.employee-row').remove());
+    $(this).parent().parent().remove();
+};
+
+
 let annualSalaryNumber = 0;
 
 function calculateMonthlyCost() {
     console.log('in calculateMonthlyCost');
+    console.log($(this));
     console.log('monthly cost start:', monthlyCost);
     for (let i = 0; i < employeeArray.length; i++) {
         //loop through employeeArray and calculate monthly cost
@@ -84,12 +107,11 @@ function calculateMonthlyCost() {
     $('#calc-table-footer').append(`
         <h3>Total Monthly: ${monthlyCost}</h2>
     `)
-    //$('.monthly-cost').empty();
     if (monthlyCost > 20000) {
         $('#calc-table-footer').css({"background-color": "red"});
     }
 
-}
+};
 
 
 //.html() writes over!! eliminates need for clearing rows
