@@ -1,5 +1,5 @@
 let employeeArray = [];
-let monthly = 0;
+let monthlyCost = 0;
 
 $(document).ready(readyNow);
 
@@ -7,10 +7,13 @@ function readyNow() {
     console.log('DOM ready');
     //enable submit-button
     $('#submit-button').on('click', addNewEmployee);
+    calculateMonthlyCost();
 };
 
-function newEmployee(firstNameInput, lastNameInput, idInput, titleInput, annualSalaryInput) {
-    console.log('in newEmployee:', firstNameInput, lastNameInput, idInput, titleInput, annualSalaryInput);
+function newEmployee(firstNameInput, lastNameInput, 
+    idInput, titleInput, annualSalaryInput) {
+    console.log('in newEmployee:', firstNameInput, 
+    lastNameInput, idInput, titleInput, annualSalaryInput);
     const newEmployeeObject = {
         firstName: firstNameInput,
         lastName: lastNameInput,
@@ -22,7 +25,7 @@ function newEmployee(firstNameInput, lastNameInput, idInput, titleInput, annualS
     return true;
 }
 //console.log(employeeArray);
-//console.log(newEmployee('Jen', 'Barber', 4521, 'Team Lead', 80000));
+// console.log(newEmployee('Jen', 'Barber', 4521, 'Team Lead', 80000));
 //console.log(employeeArray);
 
 function addNewEmployee() {
@@ -42,22 +45,12 @@ function addNewEmployee() {
     $('#title').val('');
     $('#annual-salary').val('');
     displayEmployeeTable();
-    // append inputs to DOM
-    // let el = $('.calc-inputs');
-    // el.append(`
-    //     <tr>
-    //         <th>${firstName}</th>
-    //         <th>${lastName}</th>
-    //         <th>${id}</th>
-    //         <th>${title}</th>
-    //         <th>${salaryNumber}</th>
-    //     </tr>
-    
-    // `)
+    calculateMonthlyCost();
 }
 
 function displayEmployeeTable() {
     console.log('in displayEmployeeTable');
+    $('#calc-table-body').empty();
     for (employee of employeeArray) {
         console.table(employee);
         // append inputs to DOM
@@ -74,22 +67,27 @@ function displayEmployeeTable() {
     }
 };
 
+let annualSalaryNumber = 0;
 
 function calculateMonthlyCost() {
-    // calculate monthly cost
-monthlyCost += salaryNumber/12;
-console.log('monthly cost:', monthlyCost);
-
-// append monthly cost to DOM
-$('.calc-content').append(`
-    <div class="monthly-cost">
+    console.log('in calculateMonthlyCost');
+    console.log('monthly cost start:', monthlyCost);
+    for (let i = 0; i < employeeArray.length; i++) {
+        //loop through employeeArray and calculate monthly cost
+        annualSalaryNumber = parseInt(employeeArray[i].annualSalary);
+    }
+    let monthlyCostNumber = annualSalaryNumber/12;
+    monthlyCost += monthlyCostNumber;
+    console.log('monthly cost after:', monthlyCost);
+    $('#calc-table-footer').empty();
+    // append monthly cost to DOM
+    $('#calc-table-footer').append(`
         <h3>Total Monthly: ${monthlyCost}</h2>
-    </div>
-`)
-//$('.monthly-cost').empty();
-if (monthlyCost > 20000) {
+    `)
+    //$('.monthly-cost').empty();
+    if (monthlyCost > 20000) {
     $('.monthly-cost').css({"background-color": "red"});
-}
+    }
 
 }
 
