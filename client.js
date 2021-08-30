@@ -50,6 +50,11 @@ function newEmployeeInputs() {
     $('#annual-salary').val('');
     displayEmployeeTable();
     calculateMonthlyCost();
+
+    if (firstName === '' || lastName === '' || id === '' || 
+    title === '' || annualSalary === '') {
+        window.alert('Inputs empty! Please enter additonal info.');
+    }
 };
 
 function displayEmployeeTable() {

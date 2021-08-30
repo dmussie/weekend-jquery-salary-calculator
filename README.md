@@ -27,6 +27,6 @@ Your project description goes here. What problem did you solve? How did you solv
 
 ### Stretch
 - [ ] Update the total cost on delete of a row
-- [ ] Arrays and objects to hold info
-- [ ] Alert the user of missing fields 
+- [x] Arrays and objects to hold info --> (This one I'm unsure about, I have Arrays and Objects in my code but I'm not sure if it is a part of this stretch aspect of the assignment as they helped me with base mode)
+- [x] Alert the user of missing fields 
 
